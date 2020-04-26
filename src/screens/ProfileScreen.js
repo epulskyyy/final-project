@@ -7,8 +7,12 @@ import BottomTab from '../components/BottomTab';
 import { Title } from 'react-native-paper';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import { Card, CardItem } from 'native-base';
-
-export default class ProfileScreen extends Component {
+import { connect } from 'react-redux';
+import { _logout } from '../reduxs/action/Auth';
+class ProfileScreen extends Component {
+  logout = () => {
+    this.props._logout();
+  };
   render() {
     return (
       <Fragment>
@@ -94,12 +98,7 @@ export default class ProfileScreen extends Component {
             </Text>
           </Card>
           <Card style={{ width: '85%' }}>
-            <CardItem
-              button
-              onPress={() =>
-                this.props.navigation.navigate('Login', this.state)
-              }
-            >
+            <CardItem button onPress={this.logout}>
               <Text style={{ fontSize: 17, color: '#061e8c' }}>
                 <MaterialCommunityIconsIcon
                   name="logout"
@@ -116,6 +115,10 @@ export default class ProfileScreen extends Component {
     );
   }
 }
+const mapStateToProps = () => {
+  return {};
+};
+export default connect(mapStateToProps, { _logout })(ProfileScreen);
 const styles = StyleSheet.create({
   container: {
     flex: 1,
