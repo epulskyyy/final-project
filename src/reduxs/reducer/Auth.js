@@ -1,13 +1,13 @@
-import { LOGIN_USER, LOGOUT, SIGNUP } from '../actionTypes';
-import { LOAD_SESSION, SIGNUP, LOGOUT } from '../actionTypes';
-import { AsyncStorage } from 'react-native';
+import { LOGIN_USER, LOGOUT } from "../actionTypes";
+import { LOAD_SESSION, SIGNUP } from "../actionTypes";
+import { AsyncStorage } from "react-native";
 
 const initialState = {
   user: {},
   isLogined: false,
 };
 
-export default function (state = initialState, action) {
+export default function(state = initialState, action) {
   switch (action.type) {
     case LOGIN_USER:
       _storeData(action.data);
@@ -26,8 +26,8 @@ export default function (state = initialState, action) {
 
 _storeData = async () => {
   try {
-    AsyncStorage.setItem('user', JSON.stringify(action.data));
-    AsyncStorage.setItem('isLogined', true);
+    AsyncStorage.setItem("user", JSON.stringify(action.data));
+    AsyncStorage.setItem("isLogined", true);
   } catch (error) {
     console.log(error);
   }
@@ -35,8 +35,8 @@ _storeData = async () => {
 
 _retrieveData = async (state) => {
   try {
-    const user = await AsyncStorage.getItem('user');
-    const isLogined = await AsyncStorage.getItem('isLogined');
+    const user = await AsyncStorage.getItem("user");
+    const isLogined = await AsyncStorage.getItem("isLogined");
     if (user !== null) {
       // We have data!!
       console.log(user);
