@@ -4,7 +4,7 @@ import axios from '../../axios';
 export const fetchKostdata = (category) => {
   return (dispatch) => {
     axios
-      .get(`/api/kost/category/${category}`)
+      .get(`/api/kost/category/{category}?category=${category}`)
       .then((result) => {
         console.log(result.data);
         dispatch({ type: FETCHING_KOST, data: result.data });
