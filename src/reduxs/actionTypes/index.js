@@ -1,5 +1,6 @@
-export const FETCHING_KAMAR = "FETCHING_KAMAR";
-export const FETCHING_KOST = "FETCHING_KOST";
+export const FETCHING_KAMAR = 'FETCHING_KAMAR';
+export const FETCHING_KOST = 'FETCHING_KOST';
+export const _LOGIN = 'FETCHING_KOST';
 
 // export const LOGIN_ADMIN = "LOGIN_ADMIN";
 

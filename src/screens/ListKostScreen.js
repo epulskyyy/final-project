@@ -53,7 +53,7 @@ class ListKostScreen extends Component {
             >
               <Left>
                 <Thumbnail
-                  source={item.imageUrl}
+                  source={{ uri: item.imageUrl }}
                   style={{
                     width: 353,
                     height: 500,
