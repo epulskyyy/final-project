@@ -1,25 +1,17 @@
-import React from "react";
-import { createStackNavigator } from "@react-navigation/stack";
-import { NavigationContainer } from "@react-navigation/native";
-import LoginScreen from "./src/screens/LoginScreen";
-import ProfileScreen from "./src/screens/ProfileScreen";
-import ChatScreen from "./src/screens/ChatScreen";
-import SignUpScreen from "./src/screens/SIgnUpScreen";
-import HomeScreen from "./src/screens/HomeScreen";
-import ListKostScreen from "./src/screens/ListKostScreen";
-import DetailKost from "./src/screens/DetailKost";
-import BookingScreen from "./src/screens/BookingScreen";
-import { Provider } from "react-redux";
-import thunk from "redux-thunk";
-import { createStore, applyMiddleware, combineReducers } from "redux";
-import Kost from "./src/reduxs/reducer/Kost";
-
+import React from 'react';
+import { createStackNavigator } from '@react-navigation/stack';
+import { NavigationContainer } from '@react-navigation/native';
+import LoginScreen from './src/screens/LoginScreen';
+import ProfileScreen from './src/screens/ProfileScreen';
+import ChatScreen from './src/screens/ChatScreen';
+import SignUpScreen from './src/screens/SIgnUpScreen';
+import HomeScreen from './src/screens/HomeScreen';
+import ListKostScreen from './src/screens/ListKostScreen';
+import DetailKost from './src/screens/DetailKost';
+import BookingScreen from './src/screens/BookingScreen';
+import { Provider } from 'react-redux';
+import store from './src/reduxs/store';
 export default function App() {
-  const rootReducer = combineReducers({
-    kost: Kost,
-  });
-  const store = createStore(rootReducer, applyMiddleware(thunk));
-
   console.disableYellowBox = true;
   const Stack = createStackNavigator();
   const navOptionHandler = () => ({
