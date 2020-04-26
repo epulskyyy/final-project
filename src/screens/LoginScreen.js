@@ -1,12 +1,19 @@
 import React, { Component } from "react";
 import { View, Text, StyleSheet, Image } from "react-native";
 import { TextInput, TouchableOpacity } from "react-native-gesture-handler";
+import { fetchUserData } from "../reduxs/action/User";
 
-export default class LoginScreen extends Component {
+class LoginScreen extends Component {
   state = {
     username: "",
     password: "",
   };
+  login = () => {
+    const { username, password } = this.state;
+    this.props._login({ username, password });
+    this.props.navigation.navigate("Home");
+  };
+
   render() {
     return (
       <View style={styles.container}>
@@ -41,10 +48,6 @@ export default class LoginScreen extends Component {
         >
           <Text style={styles.signUpButton}>Sign Up </Text>
         </TouchableOpacity>
-        {/* <Button
-          title="Login"
-          // onPress={() => this.props.navigation.navigate("Home", this.state)}
-        /> */}
       </View>
     );
   }
@@ -103,3 +106,5 @@ const styles = StyleSheet.create({
     resizeMode: "stretch",
   },
 });
+
+export default LoginScreen;
