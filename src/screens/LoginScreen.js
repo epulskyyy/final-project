@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { View, Text, StyleSheet, Image } from "react-native";
 import { TextInput, TouchableOpacity } from "react-native-gesture-handler";
-// import { fetchUserData } from "../reduxs/action/User";
+import { _login } from "../reduxs/action/Auth";
 import { connect } from "react-redux";
 
 class LoginScreen extends Component {
@@ -9,10 +9,12 @@ class LoginScreen extends Component {
     username: "",
     password: "",
   };
+
   login = () => {
-    const { username, password } = this.state;
-    this.props._login({ username, password });
-    this.props.navigation.navigate("Home");
+    const { password, username } = this.state;
+    const navigate = this.props.navigation;
+    this.props._login({ username, password }, navigate);
+
     console.log(this.state);
   };
 
@@ -28,7 +30,7 @@ class LoginScreen extends Component {
           underlineColorAndroid="rgba(0,0,0,0)"
           placeholder="Username.."
           placeholderTextColor="grey"
-          onChangeText={(username) => this.setState({ username: username })}
+          onChangeText={(username) => this.setState({ username })}
         />
         <TextInput
           style={styles.inputBox1}
@@ -36,12 +38,9 @@ class LoginScreen extends Component {
           placeholder="Password.."
           placeholderTextColor="grey"
           secureTextEntry={true}
-          onChangeText={(password) => this.setState({ password: password })}
+          onChangeText={(password) => this.setState({ password })}
         />
-        <TouchableOpacity
-          style={styles.button}
-          onPress={() => this.props.navigation.navigate("Home", this.state)}
-        >
+        <TouchableOpacity style={styles.button} onPress={this.login}>
           <Text style={styles.buttonText}>Login</Text>
         </TouchableOpacity>
         <Text style={styles.signup}>Don't have an account yet?</Text>
@@ -108,11 +107,10 @@ const styles = StyleSheet.create({
     resizeMode: "stretch",
   },
 });
-
 const mapStateToProps = (state) => {
   return {
     user: state.user,
   };
 };
 
-export default connect(mapStateToProps)(LoginScreen);
+export default connect(mapStateToProps, { _login })(LoginScreen);

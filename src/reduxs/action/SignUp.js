@@ -1,13 +1,13 @@
-import { LOGIN_USER } from "../actionTypes";
+import { SIGN_UP } from "../actionTypes";
 import axios from "../../axios";
 
-export const _login = (post, navigate) => {
+export const _signup = (post, navigate) => {
   return (dispatch) => {
     axios
-      .post("api/auth/signin", post)
+      .post("/api/auth/signup", post)
       .then((result) => {
         console.log(result.data);
-        dispatch({ type: LOGIN_USER, data: result.data });
+        dispatch({ type: SIGN_UP, data: result.data });
         navigate.navigate("Home");
       })
       .catch((e) => {

@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { View, Text, StyleSheet, Image } from "react-native";
 import { TextInput, TouchableOpacity } from "react-native-gesture-handler";
+import { _signup } from "../reduxs/action/SignUp";
 
 export default class SignUpScreen extends Component {
   state = {
@@ -8,6 +9,15 @@ export default class SignUpScreen extends Component {
     email: "",
     password: "",
     noHp: "",
+    gender: "",
+  };
+
+  signup = () => {
+    const { username, password, email, noHp, gender } = this.state;
+    const navigate = this.props.navigation;
+    this.props._signup({ username, password, email, noHp, gender }, navigate);
+
+    console.log(this.state);
   };
   render() {
     return (
@@ -33,7 +43,7 @@ export default class SignUpScreen extends Component {
         <TextInput
           style={styles.inputBox1}
           underlineColorAndroid="rgba(0,0,0,0)"
-          placeholder="Password.."
+          placeholder="Password"
           placeholderTextColor="grey"
           secureTextEntry={true}
           onChangeText={(password) => this.setState({ password: password })}
@@ -44,6 +54,13 @@ export default class SignUpScreen extends Component {
           placeholder="Phone Number"
           placeholderTextColor="grey"
           onChangeText={(noHp) => this.setState({ noHp: noHp })}
+        />
+        <TextInput
+          style={styles.inputBox1}
+          underlineColorAndroid="rgba(0,0,0,0)"
+          placeholder="Gender"
+          placeholderTextColor="grey"
+          onChangeText={(gender) => this.setState({ gender: gender })}
         />
         <TouchableOpacity
           style={styles.button}
@@ -114,7 +131,7 @@ const styles = StyleSheet.create({
     flexDirection: "row",
   },
   logo: {
-    width: 300,
+    width: 350,
     height: 100,
     resizeMode: "stretch",
   },
