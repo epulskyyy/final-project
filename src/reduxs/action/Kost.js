@@ -1,5 +1,5 @@
-import { FETCHING_KOST } from '../actionTypes';
-import axios from '../../axios';
+import { FETCHING_KOST } from "../actionTypes";
+import axios from "../../axios";
 
 export const fetchKostdata = (category) => {
   return (dispatch) => {
