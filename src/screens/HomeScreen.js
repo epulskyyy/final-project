@@ -5,6 +5,7 @@ import {
   StyleSheet,
   TouchableOpacity,
   Dimensions,
+  AsyncStorage,
 } from "react-native";
 import HeaderIcon from "../components/HeaderIcon";
 import BottomTab from "../components/BottomTab";
@@ -20,14 +21,12 @@ import { connect } from "react-redux";
 const { width } = Dimensions.get("window");
 
 class HomeScreen extends Component {
-  async componentDidMount() {
-    const isLogined = await AsyncStorage.getItem("isLogined");
+  render() {
+    console.log(this.props.user);
+    const isLogined = AsyncStorage.getItem("isLogined");
     if (isLogined) {
       this.props._loadSession();
     }
-  }
-
-  render() {
     return (
       <>
         <HeaderIcon

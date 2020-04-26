@@ -20,6 +20,7 @@ class LoginScreen extends Component {
 
   render() {
     console.log(this.props.user);
+
     const isLogined = AsyncStorage.getItem("isLogined");
     if (isLogined) {
       this.props.navigation.navigate("Home");
