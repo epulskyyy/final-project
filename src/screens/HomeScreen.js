@@ -1,33 +1,30 @@
-import React, { Component } from "react";
+import React, { Component } from 'react';
 import {
   View,
   Text,
   StyleSheet,
   TouchableOpacity,
   Dimensions,
-} from "react-native";
-import HeaderIcon from "../components/HeaderIcon";
-import BottomTab from "../components/BottomTab";
-import Carousel from "../components/Carousel";
-import logo from "../components/assetsImage/logo.png";
-import { TextInput } from "react-native-paper";
-import { ScrollView } from "react-native-gesture-handler";
-import Home from "../components/Home";
-import MaterialCommunityIconsIcon from "react-native-vector-icons/MaterialCommunityIcons";
-import { _loadSession } from "../reduxs/action/Auth";
-import { connect } from "react-redux";
+} from 'react-native';
+import HeaderIcon from '../components/HeaderIcon';
+import BottomTab from '../components/BottomTab';
+import Carousel from '../components/Carousel';
+import logo from '../components/assetsImage/logo.png';
+import { TextInput } from 'react-native-paper';
+import { ScrollView } from 'react-native-gesture-handler';
+import Home from '../components/Home';
+import MaterialCommunityIconsIcon from 'react-native-vector-icons/MaterialCommunityIcons';
+import { _loadSession } from '../reduxs/action/Auth';
+import { connect } from 'react-redux';
 
-const { width } = Dimensions.get("window");
+const { width } = Dimensions.get('window');
 
 class HomeScreen extends Component {
-  async componentDidMount() {
-    const isLogined = await AsyncStorage.getItem("isLogined");
+  render() {
+    const isLogined = AsyncStorage.getItem('isLogined');
     if (isLogined) {
       this.props._loadSession();
     }
-  }
-
-  render() {
     return (
       <>
         <HeaderIcon
@@ -45,8 +42,8 @@ class HomeScreen extends Component {
             placeholderTextColor="grey"
             style={{
               flex: 1,
-              fontWeight: "700",
-              backgroundColor: "white",
+              fontWeight: '700',
+              backgroundColor: 'white',
             }}
           />
         </HeaderIcon>
@@ -54,7 +51,7 @@ class HomeScreen extends Component {
           <Text
             style={{
               fontSize: 24,
-              fontWeight: "700",
+              fontWeight: '700',
               paddingHorizontal: 15,
               marginTop: 10,
             }}
@@ -65,8 +62,8 @@ class HomeScreen extends Component {
             <TouchableOpacity
               style={styles.button2}
               onPress={() =>
-                this.props.navigation.navigate("ListKost", {
-                  category: "putra",
+                this.props.navigation.navigate('ListKost', {
+                  category: 'putra',
                 })
               }
             >
@@ -78,8 +75,8 @@ class HomeScreen extends Component {
             </TouchableOpacity>
             <TouchableOpacity
               onPress={() =>
-                this.props.navigation.navigate("ListKost", {
-                  category: "putri",
+                this.props.navigation.navigate('ListKost', {
+                  category: 'putri',
                 })
               }
               style={styles.button2}
@@ -93,8 +90,8 @@ class HomeScreen extends Component {
             <TouchableOpacity
               style={styles.button2}
               onPress={() =>
-                this.props.navigation.navigate("ListKost", {
-                  category: "campur",
+                this.props.navigation.navigate('ListKost', {
+                  category: 'campur',
                 })
               }
             >
@@ -108,7 +105,7 @@ class HomeScreen extends Component {
           <Text
             style={{
               fontSize: 24,
-              fontWeight: "700",
+              fontWeight: '700',
               paddingHorizontal: 15,
               marginTop: 20,
             }}
@@ -118,7 +115,7 @@ class HomeScreen extends Component {
           <Text
             style={{
               fontSize: 12,
-              fontWeight: "700",
+              fontWeight: '700',
               paddingHorizontal: 15,
               marginTop: 2,
             }}
@@ -133,7 +130,7 @@ class HomeScreen extends Component {
           </View>
           <View style={{ marginTop: 10 }}>
             <Text
-              style={{ fontSize: 24, fontWeight: "700", paddingHorizontal: 20 }}
+              style={{ fontSize: 24, fontWeight: '700', paddingHorizontal: 20 }}
             >
               Boarding homes around Jakarta
             </Text>
@@ -141,9 +138,9 @@ class HomeScreen extends Component {
               style={{
                 paddingHorizontal: 20,
                 marginTop: 20,
-                flexDirection: "row",
-                flexWrap: "wrap",
-                justifyContent: "space-between",
+                flexDirection: 'row',
+                flexWrap: 'wrap',
+                justifyContent: 'space-between',
               }}
             >
               <Home
@@ -193,24 +190,24 @@ export default connect(mapStateToProps, { _loadSession })(HomeScreen);
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    flexDirection: "column",
-    justifyContent: "center",
-    alignItems: "center",
+    flexDirection: 'column',
+    justifyContent: 'center',
+    alignItems: 'center',
     marginBottom: 10,
   },
   button: {
     marginTop: 15,
     flex: 1,
-    flexDirection: "row",
-    alignContent: "center",
-    justifyContent: "space-between",
-    alignItems: "center",
+    flexDirection: 'row',
+    alignContent: 'center',
+    justifyContent: 'space-between',
+    alignItems: 'center',
     marginHorizontal: 25,
   },
   category: {
-    flexDirection: "column",
-    justifyContent: "space-between",
-    alignItems: "center",
+    flexDirection: 'column',
+    justifyContent: 'space-between',
+    alignItems: 'center',
   },
   categoryText: {
     fontSize: 20,
@@ -218,21 +215,21 @@ const styles = StyleSheet.create({
   button2: {
     width: 85,
     height: 50,
-    backgroundColor: "transparent",
-    borderColor: "#4194fa",
+    backgroundColor: 'transparent',
+    borderColor: '#4194fa',
     borderRadius: 0,
     borderWidth: 0,
     paddingHorizontal: 16,
     marginVertical: 10,
   },
   buttonText: {
-    color: "black",
-    textAlign: "center",
+    color: 'black',
+    textAlign: 'center',
     fontSize: 10,
   },
   icon1: {
-    backgroundColor: "transparent",
-    color: "#123e75",
+    backgroundColor: 'transparent',
+    color: '#123e75',
     fontSize: 30,
     opacity: 0.8,
     width: 24,
@@ -240,8 +237,8 @@ const styles = StyleSheet.create({
     marginHorizontal: 11,
   },
   icon2: {
-    backgroundColor: "transparent",
-    color: "#123e75",
+    backgroundColor: 'transparent',
+    color: '#123e75',
     fontSize: 30,
     opacity: 0.8,
     width: 26,
