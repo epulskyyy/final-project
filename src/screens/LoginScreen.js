@@ -14,6 +14,8 @@ class LoginScreen extends Component {
     const { password, username } = this.state;
     const navigate = this.props.navigation;
     this.props._login({ username, password }, navigate);
+
+    console.log(this.state);
   };
 
   render() {
@@ -105,5 +107,9 @@ const styles = StyleSheet.create({
     resizeMode: 'stretch',
   },
 });
-
-export default connect({ _login })(LoginScreen);
+const mapStateToProps = (state) => {
+  return {
+    user: state.user,
+  };
+};
+export default connect(mapStateToProps, { _login })(LoginScreen);

@@ -7,7 +7,8 @@ export const _login = (post, navigate) => {
       .post('api/auth/signin', post)
       .then((result) => {
         console.log(result.data);
-        dispatch({ type: LOGIN_USER, data: result.data, navigate: navigate });
+        dispatch({ type: LOGIN_USER, data: result.data });
+        navigate.navigate('Home');
       })
       .catch((e) => {
         alert(e);
