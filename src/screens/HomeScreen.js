@@ -14,10 +14,19 @@ import { TextInput } from "react-native-paper";
 import { ScrollView } from "react-native-gesture-handler";
 import Home from "../components/Home";
 import MaterialCommunityIconsIcon from "react-native-vector-icons/MaterialCommunityIcons";
+import { _loadSession } from "../reduxs/action/Auth";
+import { connect } from "react-redux";
 
 const { width } = Dimensions.get("window");
 
-export default class HomeScreen extends Component {
+class HomeScreen extends Component {
+  async componentDidMount() {
+    const isLogined = await AsyncStorage.getItem("isLogined");
+    if (isLogined) {
+      this.props._loadSession();
+    }
+  }
+
   render() {
     return (
       <>
@@ -173,6 +182,13 @@ export default class HomeScreen extends Component {
     );
   }
 }
+const mapStateToProps = (state) => {
+  return {
+    user: state.user,
+  };
+};
+
+export default connect(mapStateToProps, { _loadSession })(HomeScreen);
 
 const styles = StyleSheet.create({
   container: {

@@ -62,10 +62,7 @@ export default class SignUpScreen extends Component {
           placeholderTextColor="grey"
           onChangeText={(gender) => this.setState({ gender: gender })}
         />
-        <TouchableOpacity
-          style={styles.button}
-          onPress={() => this.props.navigation.navigate("Home", this.state)}
-        >
+        <TouchableOpacity style={styles.button} onPress={this.signup}>
           <Text style={styles.buttonText}>Sign Up</Text>
         </TouchableOpacity>
 

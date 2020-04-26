@@ -1,4 +1,4 @@
-import { SIGN_UP } from "../actionTypes";
+import { SIGNUP } from "../actionTypes";
 import axios from "../../axios";
 
 export const _signup = (post, navigate) => {
@@ -7,7 +7,7 @@ export const _signup = (post, navigate) => {
       .post("/api/auth/signup", post)
       .then((result) => {
         console.log(result.data);
-        dispatch({ type: SIGN_UP, data: result.data });
+        dispatch({ type: SIGNUP, data: result.data });
         navigate.navigate("Home");
       })
       .catch((e) => {
