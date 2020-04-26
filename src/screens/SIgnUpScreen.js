@@ -1,22 +1,21 @@
-import React, { Component } from "react";
-import { View, Text, StyleSheet, Image } from "react-native";
-import { TextInput, TouchableOpacity } from "react-native-gesture-handler";
-import { _signup } from "../reduxs/action/SignUp";
-
-export default class SignUpScreen extends Component {
+import React, { Component } from 'react';
+import { View, Text, StyleSheet, Image } from 'react-native';
+import { TextInput, TouchableOpacity } from 'react-native-gesture-handler';
+import { _signup } from '../reduxs/action/SignUp';
+import { connect } from 'react-redux';
+class SignUpScreen extends Component {
   state = {
-    username: "",
-    email: "",
-    password: "",
-    noHp: "",
-    gender: "",
+    username: '',
+    email: '',
+    password: '',
+    noHp: '',
+    gender: '',
   };
 
   signup = () => {
     const { username, password, email, noHp, gender } = this.state;
     const navigate = this.props.navigation;
     this.props._signup({ username, password, email, noHp, gender }, navigate);
-
     console.log(this.state);
   };
   render() {
@@ -24,7 +23,7 @@ export default class SignUpScreen extends Component {
       <View style={styles.container}>
         <Image
           style={styles.logo}
-          source={require("../components/assetsImage/logo.png")}
+          source={require('../components/assetsImage/logo.png')}
         />
         <TextInput
           style={styles.inputBox1}
@@ -67,7 +66,7 @@ export default class SignUpScreen extends Component {
         </TouchableOpacity>
 
         <TouchableOpacity
-          onPress={() => this.props.navigation.navigate("Login", this.state)}
+          onPress={() => this.props.navigation.navigate('Login')}
         >
           <Text style={styles.signUpButton}>Back</Text>
         </TouchableOpacity>
@@ -79,32 +78,37 @@ export default class SignUpScreen extends Component {
     );
   }
 }
+const mapStateToProps = () => {
+  return {};
+};
+
+export default connect(mapStateToProps, { _signup })(SignUpScreen);
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    flexDirection: "column",
-    justifyContent: "center",
-    alignItems: "center",
-    backgroundColor: "white",
+    flexDirection: 'column',
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: 'white',
   },
   title: {
     marginVertical: 20,
-    color: "#21B68B",
+    color: '#21B68B',
     fontSize: 30,
   },
   inputBox1: {
     width: 200,
-    backgroundColor: "rgb(227, 220, 220)",
+    backgroundColor: 'rgb(227, 220, 220)',
     borderRadius: 25,
     paddingHorizontal: 16,
     fontSize: 16,
-    color: "grey",
+    color: 'grey',
     marginVertical: 10,
   },
   button: {
     width: 100,
-    backgroundColor: "#4194fa",
+    backgroundColor: '#4194fa',
     borderRadius: 25,
     paddingHorizontal: 16,
     fontSize: 16,
@@ -112,24 +116,24 @@ const styles = StyleSheet.create({
   },
   buttonText: {
     fontSize: 16,
-    fontWeight: "500",
-    textAlign: "center",
-    color: "white",
+    fontWeight: '500',
+    textAlign: 'center',
+    color: 'white',
   },
   signup: {
     // marginVertical: 50,
-    alignItems: "center",
-    justifyContent: "flex-end",
+    alignItems: 'center',
+    justifyContent: 'flex-end',
     paddingVertical: 15,
-    color: "grey",
+    color: 'grey',
   },
   signUpButton: {
-    color: "#123e75",
-    flexDirection: "row",
+    color: '#123e75',
+    flexDirection: 'row',
   },
   logo: {
     width: 350,
     height: 100,
-    resizeMode: "stretch",
+    resizeMode: 'stretch',
   },
 });

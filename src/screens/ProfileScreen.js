@@ -1,12 +1,12 @@
-import React, { Component, Fragment } from "react";
-import { View, StyleSheet, Text, Button, Image } from "react-native";
-import MaterialCommunityIconsIcon from "react-native-vector-icons/MaterialCommunityIcons";
+import React, { Component, Fragment } from 'react';
+import { View, StyleSheet, Text, Button, Image } from 'react-native';
+import MaterialCommunityIconsIcon from 'react-native-vector-icons/MaterialCommunityIcons';
 
-import HeaderIcon from "../components/HeaderIcon";
-import BottomTab from "../components/BottomTab";
-import { Title } from "react-native-paper";
-import { TouchableOpacity } from "react-native-gesture-handler";
-import { Card, CardItem } from "native-base";
+import HeaderIcon from '../components/HeaderIcon';
+import BottomTab from '../components/BottomTab';
+import { Title } from 'react-native-paper';
+import { TouchableOpacity } from 'react-native-gesture-handler';
+import { Card, CardItem } from 'native-base';
 
 export default class ProfileScreen extends Component {
   render() {
@@ -28,46 +28,46 @@ export default class ProfileScreen extends Component {
         />
         <View style={styles.container}>
           <Image
-            source={require("../components/assetsImage/logo.jpg")}
+            source={require('../components/assetsImage/logo.jpg')}
             style={{
               width: 100,
               height: 100,
               borderRadius: 100 / 2,
             }}
           />
-          <Card style={{ width: "85%", elevation: 0 }}>
+          <Card style={{ width: '85%', elevation: 0 }}>
             <Text
               style={{
                 paddingLeft: 10,
                 paddingTop: 10,
                 fontSize: 17,
-                color: "#061e8c",
+                color: '#061e8c',
               }}
             >
               <MaterialCommunityIconsIcon name="account" style={styles.icon2} />
               &nbsp; Your Username
             </Text>
           </Card>
-          <Card style={{ width: "85%", elevation: 0 }}>
+          <Card style={{ width: '85%', elevation: 0 }}>
             <Text
               style={{
                 paddingLeft: 10,
                 paddingTop: 10,
                 fontSize: 17,
-                color: "#061e8c",
+                color: '#061e8c',
               }}
             >
               <MaterialCommunityIconsIcon name="email" style={styles.icon2} />
               &nbsp; Your Email
             </Text>
           </Card>
-          <Card style={{ width: "85%", elevation: 0 }}>
+          <Card style={{ width: '85%', elevation: 0 }}>
             <Text
               style={{
                 paddingLeft: 10,
                 paddingTop: 10,
                 fontSize: 17,
-                color: "#061e8c",
+                color: '#061e8c',
               }}
             >
               <MaterialCommunityIconsIcon
@@ -77,13 +77,13 @@ export default class ProfileScreen extends Component {
               &nbsp; Your Phone Number
             </Text>
           </Card>
-          <Card style={{ width: "85%", height: "30%", elevation: 0 }}>
+          <Card style={{ width: '85%', height: '30%', elevation: 0 }}>
             <Text
               style={{
                 paddingLeft: 10,
                 paddingTop: 10,
                 fontSize: 17,
-                color: "#061e8c",
+                color: '#061e8c',
               }}
             >
               <MaterialCommunityIconsIcon
@@ -93,14 +93,14 @@ export default class ProfileScreen extends Component {
               &nbsp; Your Booking History
             </Text>
           </Card>
-          <Card style={{ width: "85%" }}>
+          <Card style={{ width: '85%' }}>
             <CardItem
               button
               onPress={() =>
-                this.props.navigation.navigate("Login", this.state)
+                this.props.navigation.navigate('Login', this.state)
               }
             >
-              <Text style={{ fontSize: 17, color: "#061e8c" }}>
+              <Text style={{ fontSize: 17, color: '#061e8c' }}>
                 <MaterialCommunityIconsIcon
                   name="logout"
                   style={styles.icon2}
@@ -119,25 +119,25 @@ export default class ProfileScreen extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    flexDirection: "column",
-    alignItems: "center",
+    flexDirection: 'column',
+    alignItems: 'center',
     marginTop: 20,
   },
   button: {
     flex: 1,
-    flexDirection: "column",
-    alignItems: "center",
+    flexDirection: 'column',
+    alignItems: 'center',
     marginTop: 200,
   },
   info: {
     flex: 1,
-    flexDirection: "row",
-    textAlign: "left",
+    flexDirection: 'row',
+    textAlign: 'left',
   },
   icon1: {
-    flexDirection: "column-reverse",
-    backgroundColor: "transparent",
-    color: "black",
+    flexDirection: 'column-reverse',
+    backgroundColor: 'transparent',
+    color: 'black',
     fontSize: 24,
     opacity: 0.8,
     width: 24,
@@ -145,13 +145,13 @@ const styles = StyleSheet.create({
   },
   buttonText: {
     marginTop: 20,
-    color: "#4194fa",
-    backgroundColor: "#cccbc8",
+    color: '#4194fa',
+    backgroundColor: '#cccbc8',
   },
   buttonBook: {
     width: 150,
 
-    backgroundColor: "#4194fa",
+    backgroundColor: '#4194fa',
 
     fontSize: 16,
   },
