@@ -1,12 +1,13 @@
 import { _LOGIN } from '../actionTypes';
 
 const initialState = {
-  listKost: [],
+  user: [],
 };
 export default function (state = initialState, action) {
   switch (action.type) {
     case _LOGIN:
-      return { ...state, listKost: action.data };
+      action.navigate.navigate('Home');
+      return { ...state, user: action.data };
     default:
       return state;
   }
