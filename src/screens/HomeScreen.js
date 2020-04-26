@@ -21,6 +21,7 @@ const { width } = Dimensions.get('window');
 
 class HomeScreen extends Component {
   render() {
+    console.log(this.props.user);
     const isLogined = AsyncStorage.getItem('isLogined');
     if (isLogined) {
       this.props._loadSession();
