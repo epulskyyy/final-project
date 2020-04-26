@@ -1,4 +1,4 @@
-import { LOGIN_USER } from '../actionTypes';
+import { LOGIN_USER, LOAD_SESSION } from '../actionTypes';
 import axios from '../../axios';
 
 export const _login = (post, navigate) => {
@@ -13,5 +13,11 @@ export const _login = (post, navigate) => {
       .catch((e) => {
         alert(e);
       });
+  };
+};
+
+export const _loadSession = () => {
+  return (dispatch) => {
+    dispatch({ type: LOAD_SESSION });
   };
 };

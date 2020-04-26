@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text, StyleSheet, Image } from 'react-native';
+import { View, Text, StyleSheet, Image, AsyncStorage } from 'react-native';
 import { TextInput, TouchableOpacity } from 'react-native-gesture-handler';
 import { _login } from '../reduxs/action/User';
 import { connect } from 'react-redux';
@@ -10,6 +10,12 @@ class LoginScreen extends Component {
     password: '',
   };
 
+  async componentDidMount() {
+    const isLogined = await AsyncStorage.getItem('isLogined');
+    if (isLogined) {
+      this.props.navigation.navigate('Home');
+    }
+  }
   login = () => {
     const { password, username } = this.state;
     const navigate = this.props.navigation;
