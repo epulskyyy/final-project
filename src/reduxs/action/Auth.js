@@ -1,14 +1,14 @@
-import { LOGIN_USER, LOAD_SESSION, LOGOUT } from '../actionTypes';
-import axios from '../../axios';
+import { LOGIN_USER, LOAD_SESSION, LOGOUT } from "../actionTypes";
+import axios from "../../axios";
 
 export const _login = (post, navigate) => {
   return (dispatch) => {
     axios
-      .post('api/auth/signin', post)
+      .post("api/auth/signin", post)
       .then((result) => {
         console.log(result.data);
         dispatch({ type: LOGIN_USER, data: result.data });
-        navigate.navigate('Home');
+        navigate.navigate("Home");
       })
       .catch((e) => {
         alert(e);
@@ -22,8 +22,9 @@ export const _loadSession = () => {
   };
 };
 
-export const _logout = () => {
+export const _logout = (navigate) => {
   return (dispatch) => {
     dispatch({ type: LOGOUT });
+    navigate.navigate("Login");
   };
 };
