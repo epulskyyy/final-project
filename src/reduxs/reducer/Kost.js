@@ -1,9 +1,11 @@
+import { FETCHING_KOST } from '../actionTypes';
+
 const initialState = {
   listKost: [],
 };
-export default function(state = initialState, action) {
+export default function (state = initialState, action) {
   switch (action.type) {
-    case "FETCHING_KOST":
+    case FETCHING_KOST:
       return { ...state, listKost: action.listKost };
     default:
       return state;
