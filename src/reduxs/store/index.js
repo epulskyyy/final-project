@@ -1,6 +1,6 @@
-import thunk from 'redux-thunk';
-import { createStore, applyMiddleware, combineReducers } from 'redux';
-import Kost from './src/reduxs/reducer/Kost';
+import thunk from "redux-thunk";
+import { createStore, applyMiddleware, combineReducers } from "redux";
+import Kost from "../reducer/Kost";
 
 const rootReducer = combineReducers({
   kost: Kost,

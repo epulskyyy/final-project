@@ -6,6 +6,7 @@ export const fetchKostdata = () => {
     axios
       .get('http://10.10.12.79:9876/api/kost')
       .then((result) => {
+        console.log(result.data);
         dispatch({ type: FETCHING_KOST, data: result.data });
       })
       .catch((e) => {
