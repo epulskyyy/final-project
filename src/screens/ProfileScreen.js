@@ -11,7 +11,8 @@ import { connect } from 'react-redux';
 import { _logout } from '../reduxs/action/Auth';
 class ProfileScreen extends Component {
   logout = () => {
-    this.props._logout();
+    const navigate = this.props.navigation;
+    this.props._logout(navigate);
   };
   render() {
     return (

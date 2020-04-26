@@ -22,8 +22,9 @@ export const _loadSession = () => {
   };
 };
 
-export const _logout = () => {
+export const _logout = (navigate) => {
   return (dispatch) => {
     dispatch({ type: LOGOUT });
+    navigate.navigate('Login');
   };
 };
