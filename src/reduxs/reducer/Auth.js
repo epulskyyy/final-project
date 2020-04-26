@@ -1,7 +1,7 @@
 import { LOGIN_USER } from "../actionTypes";
 
 const initialState = {
-  listUser: [],
+  user: [],
 };
 export default function(state = initialState, action) {
   switch (action.type) {

@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import { View, Text, StyleSheet, Image } from "react-native";
 import { TextInput, TouchableOpacity } from "react-native-gesture-handler";
-import { fetchUserData } from "../reduxs/action/User";
+// import { fetchUserData } from "../reduxs/action/User";
+import { connect } from "react-redux";
 
 class LoginScreen extends Component {
   state = {
@@ -12,6 +13,7 @@ class LoginScreen extends Component {
     const { username, password } = this.state;
     this.props._login({ username, password });
     this.props.navigation.navigate("Home");
+    console.log(this.state);
   };
 
   render() {
@@ -107,4 +109,10 @@ const styles = StyleSheet.create({
   },
 });
 
-export default LoginScreen;
+const mapStateToProps = (state) => {
+  return {
+    user: state.user,
+  };
+};
+
+export default connect(mapStateToProps)(LoginScreen);
