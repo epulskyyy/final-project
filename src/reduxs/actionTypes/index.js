@@ -1,9 +1,10 @@
-export const FETCHING_KAMAR = 'FETCHING_KAMAR';
-export const FETCHING_KOST = 'FETCHING_KOST';
-export const LOGIN_USER = 'LOGIN_USER';
-export const LOAD_SESSION = 'LOAD_SESSION';
-export const SIGNUP = 'SIGNUP';
-export const LOGOUT = 'LOGOUT';
+export const FETCHING_KAMAR = "FETCHING_KAMAR";
+export const FETCHING_KOST = "FETCHING_KOST";
+export const LOGIN_USER = "LOGIN_USER";
+export const LOAD_SESSION = "LOAD_SESSION";
+export const SIGNUP = "SIGNUP";
+export const LOGOUT = "LOGOUT";
+export const BOOKING = "BOOKING";
 
 // export const LOGIN_ADMIN = "LOGIN_ADMIN";
 

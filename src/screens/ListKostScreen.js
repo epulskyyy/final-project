@@ -21,6 +21,7 @@ import {
 import Axios from "axios";
 import { fetchKostdata } from "../reduxs/action/Kost";
 import { connect } from "react-redux";
+import NumberFormat from "react-number-format";
 
 class ListKostScreen extends Component {
   componentDidMount() {
@@ -33,11 +34,24 @@ class ListKostScreen extends Component {
   render() {
     const list = this.props.kost.listKost.map((item) => {
       return (
-        <View style={{ backgroundColor: "#FFFF", height: 410 }}>
+        <View style={{ backgroundColor: "#242dab", height: 410 }}>
           <TouchableOpacity
             button
             onPress={() =>
-              this.props.navigation.navigate("DetailKost", { id: item.id })
+              this.props.navigation.navigate("DetailKost", {
+                id: item.id,
+                name: item.name,
+                address: item.address,
+                description: item.description,
+                luasKamar: item.luasKamar,
+                imageUrl: item.imageUrl,
+                pemilik: item.pemilik,
+                price: item.price,
+                category: item.category,
+                kontakPemilik: item.kontakPemilik,
+                fasilitas: item.fasilitas,
+                jumlahKamar: item.jumlahKamar,
+              })
             }
           >
             <View
@@ -55,7 +69,7 @@ class ListKostScreen extends Component {
                 <Thumbnail
                   source={{ uri: item.imageUrl }}
                   style={{
-                    width: 353,
+                    width: 320,
                     height: 500,
                     resizeMode: "cover",
                     flex: 1,
@@ -73,7 +87,7 @@ class ListKostScreen extends Component {
                     {"\u2022"}
                   </Text>
                   <Text style={{ color: "#1BAA56", marginLeft: 10 }}>
-                    jumlah kamar {item.jumlahKamar}
+                    Kamar Tersedia : {item.jumlahKamar}
                   </Text>
                   <Text style={{ color: "gray", marginLeft: 10 }}>
                     {"\u2022"}
@@ -101,7 +115,13 @@ class ListKostScreen extends Component {
                     marginRight: 10,
                   }}
                 >
-                  <Text>{item.price}</Text>
+                  <NumberFormat
+                    renderText={(text) => <Text>{text}</Text>}
+                    value={item.price}
+                    displayType={"text"}
+                    thousandSeparator={true}
+                    prefix={"Rp"}
+                  />
                 </View>
               </Right>
             </View>

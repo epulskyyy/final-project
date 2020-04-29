@@ -19,10 +19,9 @@ class LoginScreen extends Component {
   };
 
   render() {
-    console.log(this.props.user);
-
     const isLogined = AsyncStorage.getItem("isLogined");
-    if (isLogined) {
+    // console.log(isLogined);
+    if (isLogined == true) {
       this.props.navigation.navigate("Home");
     }
     return (
@@ -110,7 +109,7 @@ const styles = StyleSheet.create({
   logo: {
     width: 350,
     height: 100,
-    resizeMode: "stretch",
+    resizeMode: "contain",
   },
 });
 const mapStateToProps = (state) => {

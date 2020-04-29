@@ -5,7 +5,9 @@ import {
   StyleSheet,
   TouchableOpacity,
   Dimensions,
+  Image,
   AsyncStorage,
+  Animated,
 } from "react-native";
 import HeaderIcon from "../components/HeaderIcon";
 import BottomTab from "../components/BottomTab";
@@ -17,6 +19,7 @@ import Home from "../components/Home";
 import MaterialCommunityIconsIcon from "react-native-vector-icons/MaterialCommunityIcons";
 import { _loadSession } from "../reduxs/action/Auth";
 import { connect } from "react-redux";
+import { Card, Col } from "native-base";
 
 const { width } = Dimensions.get("window");
 
@@ -25,7 +28,7 @@ class HomeScreen extends Component {
     return (
       <>
         <HeaderIcon
-          title="Ternak Kost"
+          title="Ternak Kos"
           image={logo}
           // icon="menu"
           // onPress={() => {
@@ -53,7 +56,7 @@ class HomeScreen extends Component {
               marginTop: 10,
             }}
           >
-            What kind of room you needed?
+            Silahkan pilih kategori kos
           </Text>
           <View style={styles.button}>
             <TouchableOpacity
@@ -68,7 +71,7 @@ class HomeScreen extends Component {
                 name="human-male"
                 style={styles.icon1}
               ></MaterialCommunityIconsIcon>
-              <Text style={styles.buttonText}>Kost Putra</Text>
+              <Text style={styles.buttonText}>Kos Putra</Text>
             </TouchableOpacity>
             <TouchableOpacity
               onPress={() =>
@@ -82,7 +85,7 @@ class HomeScreen extends Component {
                 name="human-female"
                 style={styles.icon1}
               ></MaterialCommunityIconsIcon>
-              <Text style={styles.buttonText}>Kost Putri</Text>
+              <Text style={styles.buttonText}>Kos Putri</Text>
             </TouchableOpacity>
             <TouchableOpacity
               style={styles.button2}
@@ -96,7 +99,7 @@ class HomeScreen extends Component {
                 name="human-male-female"
                 style={styles.icon2}
               ></MaterialCommunityIconsIcon>
-              <Text style={styles.buttonText}>Kost Campur</Text>
+              <Text style={styles.buttonText}>Kos Campur</Text>
             </TouchableOpacity>
           </View>
           <Text
@@ -107,68 +110,134 @@ class HomeScreen extends Component {
               marginTop: 20,
             }}
           >
-            Introducing Ternak Kost
+            Apa sih Ternak Kos?
           </Text>
           <Text
             style={{
-              fontSize: 12,
-              fontWeight: "700",
+              fontSize: 14,
               paddingHorizontal: 15,
               marginTop: 2,
             }}
           >
-            A new selection of boarding house verified for quality and comfort
+            Ternak Kos merupakan pilihan terbaru dalam mencari tempat kost yang
+            nyaman dan berkualitas !
           </Text>
           <View style={styles.container}>
             <Carousel />
           </View>
-          <View style={styles.category}>
-            {/* <Text style={styles.categoryText}>Pilih Kategory</Text> */}
-          </View>
-          <View style={{ marginTop: 10 }}>
-            <Text
-              style={{ fontSize: 24, fontWeight: "700", paddingHorizontal: 20 }}
-            >
-              Boarding homes around Jakarta
-            </Text>
+          <View>
             <View
               style={{
-                paddingHorizontal: 20,
-                marginTop: 20,
                 flexDirection: "row",
                 flexWrap: "wrap",
                 justifyContent: "space-between",
               }}
+            ></View>
+            <Text style={styles.why}>Mengapa Ternak Kos ?</Text>
+
+            <View
+              style={{
+                flexDirection: "row",
+                height: 100,
+                padding: 20,
+              }}
             >
-              <Home
-                width={width}
-                name="The Cozy Place"
-                type="PRIVATE ROOM - 2 BEDS"
-                price={82}
-                rating={4}
+              <Image
+                style={styles.review}
+                source={require("../review/cari-mudah.bd90ceed.png")}
               />
-              <Home
-                width={width}
-                name="The Cozy Place"
-                type="PRIVATE ROOM - 2 BEDS"
-                price={82}
-                rating={4}
-              />
-              <Home
-                width={width}
-                name="The Cozy Place"
-                type="PRIVATE ROOM - 2 BEDS"
-                price={82}
-                rating={4}
-              />
-              <Home
-                width={width}
-                name="The Cozy Place"
-                type="PRIVATE ROOM - 2 BEDS"
-                price={82}
-                rating={4}
-              />
+              <Text
+                style={{
+                  fontSize: 16,
+                  fontWeight: "bold",
+                  paddingHorizontal: 15,
+                  textAlign: "center",
+                }}
+              >
+                Pencarian Mudah
+              </Text>
             </View>
+            <Text
+              style={{
+                fontSize: 16,
+                fontWeight: "500",
+                paddingHorizontal: 15,
+                textAlign: "center",
+                flexDirection: "column",
+              }}
+            >
+              Tinggal pilih kos sesuai kategori yang tersedia, Sekarang !
+            </Text>
+
+            <View
+              style={{
+                flexDirection: "row",
+                height: 100,
+                padding: 20,
+                marginTop: 10,
+              }}
+            >
+              <Image
+                style={styles.review}
+                source={require("../review/terpercaya.941f7245.png")}
+              />
+              <Text
+                style={{
+                  fontSize: 16,
+                  fontWeight: "bold",
+                  paddingHorizontal: 15,
+                  textAlign: "center",
+                  marginTop: 10,
+                }}
+              >
+                Terpercaya
+              </Text>
+            </View>
+            <Text
+              style={{
+                fontSize: 16,
+                fontWeight: "500",
+                paddingHorizontal: 15,
+                textAlign: "center",
+              }}
+            >
+              Kos yang telah terverifikasi, dilengkapi dengan peta lokasi, serta
+              foto galeri !
+            </Text>
+            <View
+              style={{
+                flexDirection: "row",
+                height: 100,
+                padding: 20,
+                marginTop: 10,
+              }}
+            >
+              <Image
+                style={styles.review}
+                source={require("../review/booking.de0d93d2.png")}
+              />
+              <Text
+                style={{
+                  fontSize: 16,
+                  fontWeight: "bold",
+                  paddingHorizontal: 15,
+                  textAlign: "center",
+                  marginTop: 10,
+                }}
+              >
+                Bisa Booking
+              </Text>
+            </View>
+            <Text
+              style={{
+                fontSize: 16,
+                fontWeight: "500",
+                paddingHorizontal: 15,
+                textAlign: "center",
+              }}
+            >
+              Langsung bisa booking yang sesuai keinginanmu, kapan saja !
+            </Text>
           </View>
         </ScrollView>
         <BottomTab {...this.props} />
@@ -222,7 +291,8 @@ const styles = StyleSheet.create({
   buttonText: {
     color: "black",
     textAlign: "center",
-    fontSize: 10,
+    fontSize: 12,
+    fontWeight: "bold",
   },
   icon1: {
     backgroundColor: "transparent",
@@ -241,5 +311,20 @@ const styles = StyleSheet.create({
     width: 26,
     height: 30,
     marginHorizontal: 10,
+  },
+  review: {
+    width: 100,
+    height: 50,
+    resizeMode: "contain",
+
+    flexDirection: "column",
+  },
+  why: {
+    justifyContent: "center",
+    textAlign: "center",
+    alignContent: "center",
+    fontSize: 20,
+    marginBottom: 10,
+    fontWeight: "bold",
   },
 });
